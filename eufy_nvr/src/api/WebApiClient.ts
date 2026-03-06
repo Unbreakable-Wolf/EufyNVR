@@ -16,9 +16,9 @@ export class WebApiClient {
     private tokenExpiresAt: number = 0;
     private user_id: string = "";
 
-    constructor(email: string, passwordHash: string) {
+    constructor(email: string, password: string) {
         this.email = email;
-        this.passwordHash = passwordHash;
+        this.passwordHash = md5(password);
 
         this.client = got.extend({
             responseType: 'json',

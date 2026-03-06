@@ -2,17 +2,17 @@ import { WebApiClient } from "./api/WebApiClient";
 
 async function main() {
     const email = process.env.EMAIL;
-    const passwordHash = process.env.PASSWORD_HASH;
+    const password = process.env.PASSWORD;
     const stationSn = process.env.STATION_SN;
 
-    if (!email || !passwordHash || !stationSn) {
-        console.error("Missing required environment variables: EMAIL, PASSWORD_HASH, STATION_SN");
+    if (!email || !password || !stationSn) {
+        console.error("Missing required environment variables: EMAIL, PASSWORD, STATION_SN");
         process.exit(1);
     }
 
     console.log(`Starting Eufy NVR WebRTC Proxy for station: ${stationSn}`);
 
-    const client = new WebApiClient(email, passwordHash);
+    const client = new WebApiClient(email, password);
     const loggedIn = await client.login();
 
     if (loggedIn) {
