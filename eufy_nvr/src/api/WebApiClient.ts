@@ -20,8 +20,8 @@ export class WebApiClient {
                 "Accept": "application/json, text/plain, */*",
                 "Content-Type": "application/json",
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
-                "Origin": "https://mysecurity.eufylife.com",
-                "Referer": "https://mysecurity.eufylife.com/"
+                "Origin": "https://nvr.eufy.com",
+                "Referer": "https://nvr.eufy.com/"
             }
         });
     }
@@ -44,8 +44,8 @@ export class WebApiClient {
                 headers: {
                     "x-auth-token": this.authToken,
                     "gtoken": gtoken,
-                    "Origin": "https://security.eufy.com",
-                    "Referer": "https://security.eufy.com/"
+                    "Origin": "https://nvr.eufy.com",
+                    "Referer": "https://nvr.eufy.com/"
                 }
             });
 

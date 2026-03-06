@@ -7,11 +7,11 @@ This project deliberately avoids the heavy P2P integration to focus purely on th
 This token lasts for a very long time (often up to a year) before expiring. Follow these simple steps to grab it from your browser:
 
 1. Open a desktop web browser (Chrome, Edge, Firefox, Safari).
-2. Go to the Eufy Web Portal: **[https://mysecurity.eufylife.com/](https://mysecurity.eufylife.com/)**
+2. Go to the Eufy Web Portal: **[https://nvr.eufy.com/](https://nvr.eufy.com/)**
 3. Log in normally using your Eufy email and password.
 4. Once logged in and viewing your cameras, open your browser's **Developer Tools** (Press `F12` or right-click anywhere and select "Inspect").
 5. Go to the **Application** tab (in Chrome/Edge) or **Storage** tab (in Firefox).
-6. In the left sidebar, expand **Cookies** and click on `https://mysecurity.eufylife.com`.
+6. In the left sidebar, expand **Cookies** and click on `https://nvr.eufy.com`.
 7. Look for the row with the Name: `auth_token`.
 8. Copy the 40-character string in the **Value** column.
 9. Paste this exact string into the `auth_token` field in the Home Assistant Addon configuration!
