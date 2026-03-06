@@ -3,12 +3,10 @@
 echo "Starting Eufy NVR WebRTC Proxy Add-on..."
 
 # Read configuration from HA options
-EMAIL=$(bashio::config 'email')
-PASSWORD=$(bashio::config 'password')
+AUTH_TOKEN=$(bashio::config 'auth_token')
 STATION_SN=$(bashio::config 'station_sn')
 
-export EMAIL
-export PASSWORD
+export AUTH_TOKEN
 export STATION_SN
 
 cd /app

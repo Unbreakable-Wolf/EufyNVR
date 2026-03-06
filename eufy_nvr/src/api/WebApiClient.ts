@@ -6,19 +6,13 @@ function md5(string: string): string {
 }
 
 export class WebApiClient {
-    private email: string;
-    private passwordHash: string;
-    private apiBase = "https://mysecurity.eufylife.com/api/v1";
     private apiSmart = "https://security-smart.eufylife.com";
 
     private client: Got;
-    private authToken: string | null = null;
-    private tokenExpiresAt: number = 0;
-    private user_id: string = "";
+    private authToken: string;
 
-    constructor(email: string, password: string) {
-        this.email = email;
-        this.passwordHash = md5(password);
+    constructor(authToken: string) {
+        this.authToken = authToken;
 
         this.client = got.extend({
             responseType: 'json',
@@ -32,43 +26,14 @@ export class WebApiClient {
         });
     }
 
-    public async login(): Promise<boolean> {
-        console.log(`[WebApiClient] Attempting login for ${this.email}`);
-        try {
-            const response = await this.client.post(`${this.apiBase}/passport/login`, {
-                json: {
-                    email: this.email,
-                    password: this.passwordHash
-                }
-            });
-
-            const result = response.body as any;
-            if (result.code === 0 && result.data) {
-                this.authToken = result.data.auth_token;
-                this.tokenExpiresAt = result.data.token_expires_at * 1000;
-                this.user_id = result.data.user_id;
-                console.log(`[WebApiClient] Login successful. Web token acquired.`);
-                return true;
-            } else {
-                console.error(`[WebApiClient] Login failed. Code: ${result.code}, Msg: ${result.msg}`);
-                return false;
-            }
-        } catch (error: any) {
-            console.error(`[WebApiClient] Login error:`, error.message);
-            if (error.response) {
-                console.error(`[WebApiClient] Response:`, error.response.body);
-            }
-            return false;
-        }
-    }
-
     public async getNvrWsSign(stationSN: string): Promise<string | null> {
         if (!this.authToken) {
             console.error(`[WebApiClient] Missing auth token. Cannot get WS sign.`);
             return null;
         }
 
-        const gtoken = md5(this.user_id);
+        // The web portal validates gtoken length; we generate a random 32-character hex string.
+        const gtoken = md5(Math.random().toString());
 
         console.log(`[WebApiClient] Requesting WS sign for station ${stationSN}`);
         try {
