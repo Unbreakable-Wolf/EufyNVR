@@ -1,0 +1,21 @@
+name: "Eufy NVR WebRTC Proxy"
+description: "A standalone add-on to expose Eufy NVR WebRTC streams to Home Assistant."
+version: "0.0.1"
+slug: "eufy_nvr"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+map:
+  - share:rw
+options:
+  email: ""
+  password_hash: ""
+  station_sn: ""
+schema:
+  email: str
+  password_hash: str
+  station_sn: str

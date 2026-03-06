@@ -1,0 +1,30 @@
+{
+  "name": "eufynvr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Unbreakable-Wolf/EufyNVR.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Unbreakable-Wolf/EufyNVR/issues"
+  },
+  "homepage": "https://github.com/Unbreakable-Wolf/EufyNVR#readme",
+  "dependencies": {
+    "@types/md5": "^2.3.6",
+    "@types/node": "^25.3.5",
+    "@types/ws": "^8.18.1",
+    "got": "^11.8.6",
+    "md5": "^2.3.0",
+    "typescript": "^5.9.3",
+    "ws": "^8.19.0"
+  }
+}
